@@ -15,7 +15,7 @@ pipeline {
 
         stage('test and publish') { 
             steps { 
-                sh "docker build -t test --build-arg crates_token=${CRATES-TOKEN}"
+                sh "docker build -t test --build-arg crates_token=${CRATES_TOKEN}"
             }
         }
     }
