@@ -1,6 +1,6 @@
 [package]
 name = "falafel"
-version = "0.0.0amqp-suppurt"
+version = "0.0.0+amqp-suppurt"
 edition = "2021"
 authors = ["Alon alon.harmon1@gmail.com"]
 description = "infrastructure and utils for microservices written in rust"
