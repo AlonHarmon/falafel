@@ -5,11 +5,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Initialize'){
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
-         stage('Clone repository') { 
+        stage('Clone repository') { 
             steps { 
                 script{
                 checkout scm
@@ -18,6 +14,8 @@ pipeline {
         }
 
         stage('test and publish') { 
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
             steps { 
                 sh "docker build -t test --build-arg crates_token=${CRATES_TOKEN}"
             }
