@@ -15,9 +15,7 @@ pipeline {
 
         stage('test and publish') { 
             steps { 
-                script{
-                 app = docker.build("underwater")
-                }
+                sh "docker build -t test --build-arg crates_token=${CRATES-TOKEN}"
             }
         }
     }
