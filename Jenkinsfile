@@ -14,9 +14,9 @@ pipeline {
         }
 
         stage('test and publish') { 
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
             steps { 
+                def dockerHome = tool 'myDocker'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
                 sh "docker build -t test --build-arg crates_token=${CRATES_TOKEN}"
             }
         }
